@@ -87,13 +87,13 @@ a {
 
 #scripture {
   width: 500px;
-  left: 190px;
+  left: 450px;
   font-size: 20px;
   font-style: italic;
   position: relative;
   -webkit-animation-name: example;
   /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 4s;
+  -webkit-animation-duration: 2s;
   /* Safari 4.0 - 8.0 */
   -webkit-animation-iteration-count: 1;
   /* Safari 4.0 - 8.0 */
@@ -103,12 +103,18 @@ a {
   0% {
     left: 0px;
   }
-  50% {
+  25% {
     left: 100px;
+  }
+  50% {
+    left: 200px;
     top: 0px;
   }
+  75% {
+    left: 300px;
+  }
   100% {
-    left: 200px;
+    left: 400px;
     top: 0px;
   }
 }
