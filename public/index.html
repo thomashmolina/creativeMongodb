@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Comments!</title>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="javascripts/comments.js"></script>
-        <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
-    </head>
+<head>
+    <title>Comments!</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="javascripts/comments.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
 
-    <body>
-        <h1>Comments</h1>
-        <div id="scripture"></div>
-        <form id="commentForm" action="">
-            <label for="name">Name: </label><input type="text" id="name" placeholder="Name" class='hello'><br><br>
-            <label for="comment">Comment: </label><input type="text" id="comment" class='hello' placeholder="Comment"><br>
-        </form>
+<body>
+    <h1>Daily Scripture</h1>
+    <div id="scripture"></div>
+    <form id="commentForm" action="">
+        <label for="name">Name: </label><input type="text" id="name" placeholder="Name"><br>
+        <label for="comment">Comment: </label><input type="text" id="comment" placeholder="Comment"><br>
+    </form>
 
-        <button id="postComment">Post Comment</button>
-        <button id="getComments">Get Comments</button>
-        <button id="deleteComments">Delete All</button>
-        <div id="json"></div>
-        <div id="done"></div>
-        <div id="comments"></div>
-    </body>
+    <button id="postComment">Post Comment</button>
+    <button id="getComments">Get Comments</button>
+    <div id="json"></div>
+    <div id="done"></div>
+    <div id="comments"></div>
+</body>
 
 </html>

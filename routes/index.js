@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 /* Set up mongoose in order to connect to mongo database */
 var mongoose = require('mongoose'); //Adds mongoose as a usable dependency
 
@@ -17,10 +18,11 @@ db.on('error', console.error.bind(console, 'connection error:')); //Checks for c
 db.once('open', function() { //Lets us know when we're connected
     console.log('Connected');
 });
+
 /* GET home page. */
 router.post('/comment', function(req, res, next) {
-    console.log(req.body);
     console.log("POST comment route");
+    console.log(req.body);
     var newcomment = new Comment(req.body);
     console.log(newcomment);
     newcomment.save(function(err, post) {
@@ -29,15 +31,24 @@ router.post('/comment', function(req, res, next) {
         res.sendStatus(200);
     });
 });
+
 /* GET comments from database */
 router.get('/comment', function(req, res, next) {
     console.log("In the GET route?");
-    Comment.find(function(err, commentList) { //Calls the find() method on your database
+    console.log(req.query);
+    var requestName = req.query["q"];
+    console.log(requestName);
+    var obj = {};
+    if(requestName){
+        obj = {Name:requestName};
+    }
+    Comment.find(obj,function(err, commentList) { //Calls the find() method on your database
         if (err) return console.error(err); //If there's an error, print it out
         else {
             console.log(commentList); //Otherwise console log the comments you found
-            res.json(commentList); //Then send the comments
+            res.json(commentList);
         }
-    })
-});
+    });
+ });
+
 module.exports = router;
