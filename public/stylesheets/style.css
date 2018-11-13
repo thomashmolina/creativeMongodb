@@ -51,10 +51,64 @@ input {
   width: 50%;
 }
 
-input:focus {
-  content
+.button8 {
+  display: inline-block;
+  padding: 0.2em 1.45em;
+  margin: 0.1em;
+  border: 0.15em solid #CCCCCC;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #000000;
+  background-color: #CCCCCC;
+  text-align: center;
+  position: relative;
+}
+
+.button8:hover {
+  border-color: #7a7a7a;
+}
+
+.button8:active {
+  background-color: #999999;
+}
+
+@media all and (max-width:30em) {
+  .button8 {
+    display: block;
+    margin: 0.2em auto;
+  }
 }
 
 a {
   color: #00B7FF;
+}
+
+#scripture {
+  width: 500px;
+  left: 190px;
+  font-size: 20px;
+  font-style: italic;
+  position: relative;
+  -webkit-animation-name: example;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: 1;
+  /* Safari 4.0 - 8.0 */
+}
+
+@-webkit-keyframes example {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 100px;
+    top: 0px;
+  }
+  100% {
+    left: 200px;
+    top: 0px;
+  }
 }

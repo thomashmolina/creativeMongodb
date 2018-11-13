@@ -39,16 +39,16 @@ router.get('/comment', function(req, res, next) {
     var requestName = req.query["q"];
     console.log(requestName);
     var obj = {};
-    if(requestName){
-        obj = {Name:requestName};
+    if (requestName) {
+        obj = { Name: requestName };
     }
-    Comment.find(obj,function(err, commentList) { //Calls the find() method on your database
+    Comment.find(obj, function(err, commentList) { //Calls the find() method on your database
         if (err) return console.error(err); //If there's an error, print it out
         else {
             console.log(commentList); //Otherwise console log the comments you found
             res.json(commentList);
         }
     });
- });
+});
 
 module.exports = router;
