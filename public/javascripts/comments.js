@@ -11,7 +11,7 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             success: function(data, textStatus) {
                 //$("#done").html(textStatus);
-                var name = "Name: "+$("#name").val()+"<br>"++"Comment: "+$("#comment").val();
+                var name = "Name: "+$("#name").val()+"<br>"+"Comment: "+$("#comment").val();
                 $("#json").html(name);
             }
         });
