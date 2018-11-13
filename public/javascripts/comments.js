@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#postComment").click(function() {
         var myobj = { Name: $("#name").val(), Comment: $("#comment").val() };
         jobj = JSON.stringify(myobj);
-        $("#json").text(jobj);
+        //$("#json").text(jobj);
         var url = "comment";
         $.ajax({
             url: url,
@@ -10,7 +10,9 @@ $(document).ready(function() {
             data: jobj,
             contentType: "application/json; charset=utf-8",
             success: function(data, textStatus) {
-                $("#done").html(textStatus);
+                //$("#done").html(textStatus);
+                var name = "Name: "+$("#name").val()+"<br>"++"Comment: "+$("#comment").val();
+                $("#json").html(name);
             }
         });
     });
@@ -42,7 +44,7 @@ $(document).ready(function() {
         console.log("Chapter: " + randomC);
         console.log("Verse: " + randomV);
         reference += "<h1>" + data.books[randomB].chapters[randomC].verses[randomV].reference + "<br>" + "</h1>";
-        reference += "<p>" + data.books[randomB].chapters[randomC].verses[randomV].text + "<br>" + "</p>";
+        reference += "<p>" + "\"" +data.books[randomB].chapters[randomC].verses[randomV].text + "\"" + "<br>" + "</p>";
         console.log(reference);
         $("#scripture").html(reference);
     });
