@@ -32,12 +32,17 @@ $(document).ready(function() {
     $.getJSON(url, function(data) {
         console.log(data);
         var reference = '';
-        var random = Math.floor((Math.random() * 62));
-        var randomV = Math.floor((Math.random() * 9));
-        console.log("Chapter: " + random);
+        var books = 15;
+        var chapters = [21, 32, 6, 0, 0, 0, 0, 28, 62, 15, 29, 0, 8, 14, 9];
+        var randomB = Math.floor((Math.random() * 14));
+        books = randomB;
+        var randomC = Math.floor((Math.random() * chapters[books]));
+        var randomV = Math.floor((Math.random() * data.books[randomB].chapters[randomC].verses.length));
+        console.log(data.books[randomB].chapters[randomC].verses.length);
+        console.log("Chapter: " + randomC);
         console.log("Verse: " + randomV);
-        reference += "<h1>" + data.books[8].chapters[random].verses[randomV].reference + "<br>" + "</h1>";
-        reference += "<p>" + data.books[8].chapters[random].verses[randomV].text + "<br>" + "</p>";
+        reference += "<h1>" + data.books[randomB].chapters[randomC].verses[randomV].reference + "<br>" + "</h1>";
+        reference += "<p>" + data.books[randomB].chapters[randomC].verses[randomV].text + "<br>" + "</p>";
         console.log(reference);
         $("#scripture").html(reference);
     });
