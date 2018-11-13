@@ -8,7 +8,8 @@ mongoose.connect('mongodb://localhost/commentDB', { useNewUrlParser: true }); //
 
 var commentSchema = mongoose.Schema({ //Defines the Schema for this database
     Name: String,
-    Comment: String
+    Comment: String,
+    Scripture: String
 });
 
 var Comment = mongoose.model('Comment', commentSchema); //Makes an object from that schema as a model
@@ -50,5 +51,11 @@ router.get('/comment', function(req, res, next) {
         }
     });
 });
+router.delete('/comment', function(req, res, next) {
+    console.log("in delete");
+    Comment.find().remove(function() {
 
+    });
+    res.sendStatus(200);
+});
 module.exports = router;

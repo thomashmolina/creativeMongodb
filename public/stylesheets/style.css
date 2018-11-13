@@ -87,7 +87,8 @@ a {
 
 #scripture {
   width: 500px;
-  left: 450px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 20px;
   font-style: italic;
   position: relative;
@@ -101,20 +102,27 @@ a {
 
 @-webkit-keyframes example {
   0% {
-    left: 0px;
-  }
-  25% {
-    left: 100px;
-  }
-  50% {
-    left: 200px;
-    top: 0px;
-  }
-  75% {
-    left: 300px;
+    left: -450px;
   }
   100% {
-    left: 400px;
+    left: 0px;
     top: 0px;
   }
+}
+
+h2 {
+  font-size: 48px;
+}
+
+#names {
+  margin-left: -50%;
+}
+
+#commenting {
+  margin-left: -45%;
+}
+
+#comments {
+  text-align: left;
+  margin-left: 15%;
 }

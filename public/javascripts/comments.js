@@ -1,8 +1,8 @@
 $(document).ready(function() {
     $("#postComment").click(function() {
-        var myobj = { Name: $("#name").val(), Comment: $("#comment").val() };
+        var myobj = { Name: $("#name").val(), Comment: $("#comment").val(), Scripture: $("h1").text() };
         jobj = JSON.stringify(myobj);
-        //$("#json").text(jobj);
+        $("#json").text(jobj);
         var url = "comment";
         $.ajax({
             url: url,
@@ -11,7 +11,9 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             success: function(data, textStatus) {
                 //$("#done").html(textStatus);
-                var name = "Name: "+$("#name").val()+"<br>"+"Comment: "+$("#comment").val();
+                var name = "<div id = \"names\">" + "Name: " + $("#name").val() + "</div>";
+                name += "<div id = \"commenting\">" + "Comment: " + $("#comment").val() + "</div>";
+                name += "<div id = \"commenting\">" + "Scripture: " + $("h1").text() + "</div>";
                 $("#json").html(name);
             }
         });
@@ -22,12 +24,23 @@ $(document).ready(function() {
             var everything = "<ul>";
             for (var comment in data) {
                 com = data[comment];
-                everything += "<li> Name: " + com.Name + " -- Comment: " + com.Comment + "</li>";
+                everything += "<li> Name: " + com.Name + "<br>" + "Comment: " + com.Comment + "<br>" + "Scripture: " + com.Scripture;
             }
             everything += "</ul>";
             $("#comments").html(everything);
         });
     });
+    $("#deleteComments").click(function() {
+        var url = "comment";
+        $.ajax({
+            url: url,
+            type: "DELETE",
+            data: '',
+            success: function(data, textStatus) {
+                console.log(textStatus);
+            }
+        });
+    })
 
     var url = "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/book-of-mormon.json";
     console.log(url);
@@ -44,7 +57,7 @@ $(document).ready(function() {
         console.log("Chapter: " + randomC);
         console.log("Verse: " + randomV);
         reference += "<h1>" + data.books[randomB].chapters[randomC].verses[randomV].reference + "<br>" + "</h1>";
-        reference += "<p>" + "\"" +data.books[randomB].chapters[randomC].verses[randomV].text + "\"" + "<br>" + "</p>";
+        reference += "<p>" + "\"" + data.books[randomB].chapters[randomC].verses[randomV].text + "\"" + "<br>" + "</p>";
         console.log(reference);
         $("#scripture").html(reference);
     });
